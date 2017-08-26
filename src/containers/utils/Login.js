@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+import Login from "../../components/Login";
+
+class LoginController extends Component {
     constructor() {
         super()
 
@@ -23,4 +25,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default LoginController;

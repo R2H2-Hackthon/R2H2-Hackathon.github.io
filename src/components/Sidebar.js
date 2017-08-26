@@ -22,7 +22,7 @@ const Sidebar = (props) => {
             <List disablePadding>
                 {sidebar.map(menu => {
                     return (
-                        <Link to={menu.link}>
+                        <Link to={menu.link} key={menu.label}>
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
