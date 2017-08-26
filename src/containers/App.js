@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 
 //Components
+import Login from "../components/Login"
 import Sidebar from "../components/Sidebar"
 
 class App extends Component {
     constructor() {
         super()
 
-        this.state = {}
+        this.state = {
+            name: "",
+            password: ""
+        }
+    }
+
+    handleChange = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        })
     }
 
     handleOpenMenu = () => {
@@ -22,6 +32,9 @@ class App extends Component {
                 <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
 
                 <button onClick={this.handleOpenMenu}>Menu</button>
+
+                <Login nome={this.state.nome} titleName="Nome" password={this.state.password} handleChange={this.handleChange}  />                
+
             </div>
         );
     }

@@ -6,7 +6,7 @@ import FormControl from 'material-ui/Form/FormControl';
 const Login = (props) => {
     return (
         <div>
-            <img src"https://avatars1.githubusercontent.com/u/19806761?v=4&s=200">
+            <img src="https://avatars1.githubusercontent.com/u/19806761?v=4&s=200" alt="Logo App"/>
             <FormControl>
                 <InputLabel htmlFor="name-simple">{props.titleName}</InputLabel>
                 <Input id="name-simple" value={props.nome} name="name" onChange={props.handleChange} />
