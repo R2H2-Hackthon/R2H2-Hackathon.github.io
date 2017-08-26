@@ -9,20 +9,21 @@ class App extends Component {
     super()
 
     this.state = {
-      name: ""
+      name: "",
+      password: ""
     }
   }
 
   handleChange = (evt) => {
     this.setState({
-      name: evt.target.value
+      [evt.target.name]: evt.target.value
     })
   }
 
   render() {
     return (
       <div className="App">
-        <Login name={this.state.name} titleName="Nome" handleChange={this.handleChange}  />
+        <Login nome={this.state.nome} titleName="Nome" password={this.state.password} handleChange={this.handleChange}  />
       </div>
     );
   }
