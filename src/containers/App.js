@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Switch, Route } from "react-router-dom";
 
 //Components
+import Main from "./main/Main"
+import Profile from "./profile/Profile"
 import Header from "../components/Header"
-import Login from "../components/Login"
+import Login from "./utils/Login"
 import Sidebar from "../components/Sidebar"
 
 class App extends Component {
@@ -32,9 +35,12 @@ class App extends Component {
             <div>
                 <Header title="GrowUp" loginTitle="Login" handleOpenMenu={this.handleOpenMenu} />
 
-                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
-
-                <Login nome={this.state.nome} titleName="Nome" password={this.state.password} handleChange={this.handleChange}  />                
+                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />              
+                <Switch>
+                    <Route exact path='/' component={Main}/>
+                    <Route exact path='/login' component={Login}/>
+                    <Route exact path='/profile' component={Profile}/>
+                </Switch>
 
             </div>
         );

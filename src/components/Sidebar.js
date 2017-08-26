@@ -1,8 +1,8 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/Inbox';
-import StarIcon from 'material-ui-icons/Star';
 
 const Sidebar = (props) => {
     return (
@@ -11,18 +11,41 @@ const Sidebar = (props) => {
             onRequestClose={props.handleOpenMenu}
             onClick={props.handleOpenMenu} >
             <List disablePadding>
-                <ListItem button>
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Inbox" />
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <StarIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                </ListItem>
+                <Link to="/">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Home" />
+                    </ListItem>
+                </Link>
+
+                <Link to="/profile">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Perfil" />
+                    </ListItem>
+                </Link>
+
+                <Link to="/profile">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Missões" />
+                    </ListItem>
+                </Link>
+
+                <Link to="/profile">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Ranking" />
+                    </ListItem>
+                </Link>
             </List>
         </Drawer>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -15,7 +16,9 @@ const Header = (props) => {
                     <MenuIcon onClick={props.handleOpenMenu} />
                 </IconButton>
                 <Typography type="title" color="inherit" style={{flex:1}}>
-                    {props.title}
+                    <Link to="/" style={{color:"white", textDecoration: "none"}}>
+                        {props.title}
+                    </Link>
                 </Typography>
                 <Button color="contrast">{props.loginTitle}</Button>
                 </Toolbar>
