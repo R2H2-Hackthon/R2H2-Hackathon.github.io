@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 //Components
+import Header from "../components/Header"
 import Login from "../components/Login"
 import Sidebar from "../components/Sidebar"
 
@@ -29,9 +30,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
+                <Header title="GrowUp" loginTitle="Login" handleOpenMenu={this.handleOpenMenu} />
 
-                <button onClick={this.handleOpenMenu}>Menu</button>
+                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
 
                 <Login nome={this.state.nome} titleName="Nome" password={this.state.password} handleChange={this.handleChange}  />                
 
