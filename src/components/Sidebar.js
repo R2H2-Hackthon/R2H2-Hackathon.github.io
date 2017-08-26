@@ -4,6 +4,15 @@ import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/Inbox';
 
+const sidebar = [
+    {link:"/", label:"Home"},
+    {link:"profile", label:"Perfil"},
+    {link:"missoes", label:"Missoes"},
+    {link:"ranking", label:"Ranking"},
+    {link:"dependentes", label:"Dependentes"},
+    {link:"Saldo", label:"Saldo"},
+]
+
 const Sidebar = (props) => {
     return (
         <Drawer
@@ -11,41 +20,18 @@ const Sidebar = (props) => {
             onRequestClose={props.handleOpenMenu}
             onClick={props.handleOpenMenu} >
             <List disablePadding>
-                <Link to="/">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Home" />
-                    </ListItem>
-                </Link>
-
-                <Link to="/profile">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Perfil" />
-                    </ListItem>
-                </Link>
-
-                <Link to="/profile">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Missões" />
-                    </ListItem>
-                </Link>
-
-                <Link to="/profile">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Ranking" />
-                    </ListItem>
-                </Link>
+                {sidebar.map(menu => {
+                    return (
+                        <Link to={menu.link}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={menu.label} />
+                            </ListItem>
+                        </Link>
+                    )
+                })}
             </List>
         </Drawer>
     );

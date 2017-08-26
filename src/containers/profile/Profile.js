@@ -8,6 +8,8 @@ import Typography from 'material-ui/Typography';
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import ShareIcon from 'material-ui-icons/Share';
 
+import TitleScreen from "../../components/TitleScreen";
+
 class Profile extends Component {
   state = { expanded: false };
 
@@ -18,6 +20,7 @@ class Profile extends Component {
   render() {
     return (
       <div>
+        <TitleScreen title="Perfil" />
         <Card>
           <CardHeader
             avatar={

@@ -12,8 +12,8 @@ const Header = (props) => {
         <div style={{width:"100%"}}>
             <AppBar position="static">
                 <Toolbar>
-                <IconButton color="contrast" aria-label="Menu">
-                    <MenuIcon onClick={props.handleOpenMenu} />
+                <IconButton color="contrast" aria-label="Menu" onClick={props.handleOpenMenu}>
+                    <MenuIcon />
                 </IconButton>
                 <Typography type="title" color="inherit" style={{flex:1}}>
                     <Link to="/" style={{color:"white", textDecoration: "none"}}>
