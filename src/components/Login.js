@@ -6,9 +6,14 @@ import FormControl from 'material-ui/Form/FormControl';
 const Login = (props) => {
     return (
         <div>
+            <img src"https://avatars1.githubusercontent.com/u/19806761?v=4&s=200">
             <FormControl>
                 <InputLabel htmlFor="name-simple">{props.titleName}</InputLabel>
-                <Input id="name-simple" value={props.name} onChange={props.handleChange} />
+                <Input id="name-simple" value={props.nome} name="name" onChange={props.handleChange} />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="name-simple">{props.titlePassword}</InputLabel>
+                <Input id="passower-simple" value={props.password} name="password" onChange={props.handleChange} />
             </FormControl>
         </div>
     );
