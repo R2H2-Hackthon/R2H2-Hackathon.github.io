@@ -39,8 +39,7 @@ class App extends Component {
         return (
             <div>
                 <Header title="GrowUp" loginTitle="Login" handleOpenMenu={this.handleOpenMenu} />
-
-                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />              
+                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
                 <Switch>
                     <Route exact path='/' component={Main}/>
                     <Route exact path='/dependentes' component={Dependentes}/>
@@ -50,8 +49,7 @@ class App extends Component {
                     <Route exact path='/ranking' component={Ranking}/>
                     <Route exact path='/saldo' component={Saldo}/>
                 </Switch>
-
-            </div>
+              </div>
         );
     }
 }
