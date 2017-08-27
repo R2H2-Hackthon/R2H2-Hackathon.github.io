@@ -5,12 +5,12 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/Inbox';
 
 const sidebar = [
-    {link:"/", label:"Home"},
-    {link:"profile", label:"Perfil"},
-    {link:"missoes", label:"Missoes"},
-    {link:"ranking", label:"Ranking"},
-    {link:"dependentes", label:"Dependentes"},
-    {link:"Saldo", label:"Saldo"},
+    {link:"/", label:"Home", icon: <InboxIcon />},
+    {link:"profile", label:"Perfil", icon: <InboxIcon />},
+    {link:"missoes", label:"Missoes", icon: <InboxIcon />},
+    {link:"ranking", label:"Ranking", icon: <InboxIcon />},
+    {link:"dependentes", label:"Dependentes", icon: <InboxIcon />},
+    {link:"Saldo", label:"Saldo", icon: <InboxIcon />}
 ]
 
 const Sidebar = (props) => {
@@ -25,7 +25,7 @@ const Sidebar = (props) => {
                         <Link to={menu.link} key={menu.label}>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <InboxIcon />
+                                  {menu.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={menu.label} />
                             </ListItem>

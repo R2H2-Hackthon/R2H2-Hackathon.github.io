@@ -16,7 +16,6 @@ import Sidebar from "../components/Sidebar";
 class App extends Component {
     constructor() {
         super()
-
         this.state = {
             name: "",
             password: ""
@@ -38,7 +37,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header title="GrowUp" loginTitle="Login" handleOpenMenu={this.handleOpenMenu} />
+                <Header title="GrowUp" handleOpenMenu={this.handleOpenMenu} />
                 <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
                 <Switch>
                     <Route exact path='/' component={Main}/>
