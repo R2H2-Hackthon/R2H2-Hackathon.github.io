@@ -48,7 +48,14 @@
         authDomain: "teencard-c1737.firebaseapp.com",
         messagingSenderId: "51991242324",
       };
+
       firebase.initializeApp(config);
+
+      const messaging = firebase.messaging();
+
+      messaging.onMessage(function (payload) {
+        console.log("Message received. ", payload);
+      });
       
     </script>
   </body>
