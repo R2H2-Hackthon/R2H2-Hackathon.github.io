@@ -70,7 +70,7 @@ const CadastroUser = (props) => {
                     fullWidth
                 />
             </div>
-            <Button onClick={this.handleRequestClose} color="accent">
+            <Button onClick={props.handleRequestClose} color="accent">
                 Cancelar
             </Button>
             <Button color="primary" type="submit">

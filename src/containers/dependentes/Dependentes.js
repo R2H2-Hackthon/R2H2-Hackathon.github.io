@@ -4,13 +4,14 @@ import {bindActionCreators} from "redux";
 import { withRouter } from 'react-router-dom';
 import MobileStepper from 'material-ui/MobileStepper';
 import Dialog, { DialogTitle, DialogContent } from 'material-ui/Dialog';
+import Button from 'material-ui/Button';
 
 import ButtonPlus from "../../components/ButtonPlus"
 import TitleScreen from "../../components/TitleScreen";
 import CadastroUser from "./CadastroUser";
 
 //Actions
-import {getUsers,addUser} from "../../actions"
+import {getUsers,addUser,insertCartaoUser,removeDependente} from "../../actions"
 
 class Dependentes extends Component {
     constructor() {
@@ -49,6 +50,7 @@ class Dependentes extends Component {
     onFormSubmit = evt => {
         evt.preventDefault()
 
+        this.setState({ open: false });
         this.props.addUser(this.state)
     }
 
@@ -66,6 +68,18 @@ class Dependentes extends Component {
                         <p>{dependentes[pos].nome}</p>
                         <p>{dependentes[pos].email}</p>
                         <p>{dependentes[pos].dataNascimento}</p>
+                        <p>
+                            {dependentes[pos].cartoes_vinculados.length === 0 ?
+                                <Button raised color="accent" onClick={() => this.props.insertCartaoUser({id:dependentes[pos].id})}>
+                                    Adicionar cartão
+                                </Button>
+                            :<strong>Cartão: {dependentes[pos].cartoes_vinculados[0]}</strong>
+                        }</p>
+                        <p>
+                            <Button raised color="primary" onClick={() => this.props.removeDependente({id:dependentes[pos].id})}>
+                                Remover Dependente
+                            </Button>
+                        </p>
                     </span>
                 : ""}
 
@@ -83,7 +97,7 @@ class Dependentes extends Component {
                 <Dialog onRequestClose={this.handleRequestClose} {...this.state}>
                     <DialogTitle>Cadastro de um novo dependente</DialogTitle>
                     <DialogContent>
-                        <CadastroUser {...this.state} onChange={this.onChange} onFormSubmit={this.onFormSubmit}/>
+                        <CadastroUser {...this.state} onChange={this.onChange} handleRequestClose={this.handleRequestClose} onFormSubmit={this.onFormSubmit}/>
                     </DialogContent>
                 </Dialog>
 
@@ -101,7 +115,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         getUsers,
-        addUser
+        addUser,
+        insertCartaoUser,
+        removeDependente
     }, dispatch)
 }
   

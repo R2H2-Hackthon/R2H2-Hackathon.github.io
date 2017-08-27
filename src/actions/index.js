@@ -13,7 +13,9 @@ export function addUser(user) {
                  })
              })
              .catch(function(erro) {
-                console.log("erro", erro)
+                dispatch({
+                    type: constants.ERROR_API
+                })
              })
     }
 }
@@ -35,7 +37,9 @@ export function getUserProfile() {
                  })
              })
              .catch(function(erro) {
-                console.log("erro", erro)
+                dispatch({
+                    type: constants.ERROR_API
+                })
              })
     }
 }
@@ -50,7 +54,9 @@ export function getUsers() {
                  })
              })
              .catch(function(erro) {
-                console.log("erro", erro)
+                dispatch({
+                    type: constants.ERROR_API
+                })
              })
     }
 }
@@ -65,7 +71,9 @@ export function getCards() {
                  })
              })
              .catch(function(erro) {
-                console.log("erro", erro)
+                dispatch({
+                    type: constants.ERROR_API
+                })
              })
     }
 }
@@ -80,7 +88,43 @@ export function getMissions() {
                  })
              })
              .catch(function(erro) {
-                console.log("erro", erro)
+                dispatch({
+                    type: constants.ERROR_API
+                })
+             })
+    }
+}
+
+export function insertCartaoUser({id}) {
+    return dispatch => {
+        axios.post(`${constants.URL_BACK}/v1/cartoes/solicitar/${id}`)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.INSERT_CARTAO_USER,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                dispatch({
+                    type: constants.ERROR_API
+                })
+             })
+    }
+}
+
+export function removeDependente({id}) {
+    return dispatch => {
+        axios.delete(`${constants.URL_BACK}/v1/usuarios/${id}`)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.REMOVE_DEPENDENTE,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                dispatch({
+                    type: constants.ERROR_API
+                })
              })
     }
 }

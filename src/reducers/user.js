@@ -52,6 +52,31 @@ export default function(state=getInitialState, action) {
             }
         }
 
+        case constants.INSERT_CARTAO_USER: {
+            return {
+                ...state,
+                dependentes: action.payload,
+                showMessage: true,
+                message: "Ação realizada com sucesso"
+            }
+        }
+
+        case constants.ERROR_API: {
+            return {
+                ...state,
+                showMessage: true,
+                message: "Erro ao realizar a operação"
+            }
+        }
+
+        case constants.REMOVE_DEPENDENTE: {
+            return {
+                ...state,
+                showMessage: true,
+                message: "Removido com sucesso"
+            }
+        }
+
         default:
             return state
     }
