@@ -11,6 +11,10 @@ class Main extends Component {
     this.state = {}
   }
 
+  componentWillMount() {
+    document.querySelector("#visa-button").style.display = "none"
+  }
+
   render() {
     return (
       <div>

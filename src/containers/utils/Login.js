@@ -12,6 +12,10 @@ class LoginController extends Component {
         }
     }
 
+    componentWillMount(){
+        document.querySelector("#visa-button").style.display = "none"
+    }
+
     handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value

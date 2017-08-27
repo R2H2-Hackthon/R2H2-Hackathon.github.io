@@ -21,6 +21,23 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
+
+    <script type="text/javascript">
+      function onVisaCheckoutReady() {
+          V.init({
+              apikey: "2MKWL190FYMSIUVL11KI211M3wbLD0TunZP65qM0MbTeQLu2U",
+              paymentRequest: {
+                  currencyCode: "USD",
+                  subtotal: "11.00"
+              }
+          });
+          V.on("payment.success", function (payment) { alert(JSON.stringify(payment)); });
+          V.on("payment.cancel", function (payment) { alert(JSON.stringify(payment)); });
+          V.on("payment.error", function (payment, error) { alert(JSON.stringify(error)); });
+      }
+  </script>
+
     <title>GrowUp Adm</title>
   </head>
   <body>
@@ -38,5 +55,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <div id="visa-button" style="display:none">
+      <img alt="Visa Checkout" class="v-button" role="button" src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png"/>
+      <script type="text/javascript" src="https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js"></script>
+    </div>
   </body>
 </html>

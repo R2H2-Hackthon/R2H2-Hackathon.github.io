@@ -21,6 +21,7 @@ class Missoes extends Component {
 
     componentWillMount() {
         this.props.getMissions()
+        document.querySelector("#visa-button").style.display = "none"
     }
 
     handleRequestClose = evt => {

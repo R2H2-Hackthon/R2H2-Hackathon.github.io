@@ -13,6 +13,10 @@ import TitleScreen from "../../components/TitleScreen";
 class Profile extends Component {
   state = { expanded: false };
 
+  componentWillMount(){
+    document.querySelector("#visa-button").style.display = "none"
+  }
+
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   };

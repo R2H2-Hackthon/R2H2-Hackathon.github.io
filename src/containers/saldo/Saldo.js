@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card, { CardHeader } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 
-import ButtonPlus from "../../components/ButtonPlus";
 import TitleScreen from "../../components/TitleScreen";
 
 const extratos = [
@@ -15,11 +14,14 @@ const extratos = [
 ]
 
 class Saldo extends Component {
+    componentWillMount(){
+        document.querySelector("#visa-button").style.display = "none"
+    }
+
     render() {
         return (
             <div>
-                <TitleScreen title="Saldo/Extrato" />
-                <ButtonPlus />
+                <TitleScreen title="Extrato" />
 
                 {extratos.map((extrato,key) => {
                     return (

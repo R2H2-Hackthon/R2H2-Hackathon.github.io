@@ -72,6 +72,7 @@ export default function(state=getInitialState, action) {
         case constants.REMOVE_DEPENDENTE: {
             return {
                 ...state,
+                dependentes: action.payload,
                 showMessage: true,
                 message: "Removido com sucesso"
             }

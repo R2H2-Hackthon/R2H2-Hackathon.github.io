@@ -20,6 +20,10 @@ const users = [
 ]
 
 class Ranking extends Component {
+    componentWillMount(){
+        document.querySelector("#visa-button").style.display = "none"
+    }
+
     render() {
         return (
             <div>

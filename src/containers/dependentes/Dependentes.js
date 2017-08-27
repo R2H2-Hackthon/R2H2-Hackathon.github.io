@@ -22,6 +22,7 @@ class Dependentes extends Component {
 
     componentWillMount() {
         this.props.getUsers()
+        document.querySelector("#visa-button").style.display = "none"
     }
 
     handleNext = () => {

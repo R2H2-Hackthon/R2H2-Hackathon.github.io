@@ -14,6 +14,7 @@ import Login from "./utils/Login";
 import Dependentes from "./dependentes/Dependentes";
 import Missoes from "./missoes/Missoes";
 import Saldo from "./saldo/Saldo";
+import Pagamentos from "./pagamentos/Pagamentos";
 
 //Components
 import Header from "../components/Header";
@@ -37,6 +38,7 @@ class App extends Component {
 
     componentWillMount() {
         this.props.getUserProfile()
+        document.querySelector("#visa-button").style.display = "none"
     }
 
     handleChange = (evt) => {
@@ -90,6 +92,7 @@ class App extends Component {
                     <Route exact path='/profile' component={Profile}/>
                     <Route exact path='/ranking' component={Ranking}/>
                     <Route exact path='/saldo' component={Saldo}/>
+                    <Route exact path='/pagamentos' component={Pagamentos}/>
                 </Switch>
               </div>
         );
