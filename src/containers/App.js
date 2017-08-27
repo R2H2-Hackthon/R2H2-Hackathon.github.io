@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import { withRouter } from 'react-router-dom';
 
 import Main from "./main/Main";
 import Profile from "./profile/Profile";
@@ -13,19 +16,13 @@ import Saldo from "./saldo/Saldo";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
+//Actions
+import {getUserProfile} from "../actions"
+
+//Utils
 import logo from "./logo.png";
 import logoInverse from "./logo-inverse.png";
-
 import './App.css';
-
-const user = {
-    name: "Heitor, 18",
-    saldo: "R$ 2673,83",
-    email: "hi@heitorgouvea.me",
-    desejos: [
-      {descricao: "Viajar para Angola", porcentagem: 55}
-    ]
-  }
 
 class App extends Component {
     constructor() {
@@ -34,6 +31,10 @@ class App extends Component {
             name: "",
             password: ""
         }
+    }
+
+    componentWillMount() {
+        this.props.getUserProfile()
     }
 
     handleChange = (evt) => {
@@ -49,6 +50,7 @@ class App extends Component {
     }
 
     render() {
+        const {user} = this.props
         return (
             <div>
                 <Header title={<img src={logoInverse} width="230px" />} handleOpenMenu={this.handleOpenMenu} />
@@ -67,4 +69,16 @@ class App extends Component {
     }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        ...state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getUserProfile
+    }, dispatch)
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

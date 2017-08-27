@@ -1,6 +1,10 @@
 // @flow weak
 
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import { withRouter } from 'react-router-dom'
+
 import "./Profile.css"
 import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
@@ -13,15 +17,6 @@ import TitleScreen from "../../components/TitleScreen";
 
 import avatar from "./avatar.jpg"
 
-const user = {
-  name: "Heitor, 18",
-  saldo: "R$ 2673,83",
-  email: "hi@heitorgouvea.me",
-  desejos: [
-    {descricao: "Viajar para Angola", porcentagem: 55}
-  ]
-}
-
 class Profile extends Component {
   state = { expanded: false };
 
@@ -30,30 +25,31 @@ class Profile extends Component {
   };
 
   render() {
+    const {user} = this.props
     return (
       <div className="center">
         <TitleScreen title="Perfil" />
         <Card>
-          <img src={avatar} style={{width:200, height:200, borderRadius: "50%"}} />
+          <img src={user.avatar} style={{width:200, height:200, borderRadius: "50%"}} />
           <CardMedia
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography type="headline" component="h2">
-              {user.name}
+              {user.nome}
             </Typography>
             <Typography component="p">
               {user.email}
             </Typography>
 
             <Typography component="p">
-              <strong>Desejos: {user.desejos.map(desejo => {
+              <strong>Desejos: {user.desejos ? user.desejos.map((desejo,key) => {
                 return (
-                  <Typography component="p">
+                  <Typography component="p" key={key} >
                     {desejo.descricao}
                   </Typography>
                 )
-              })}
+              }) : ""}
               </strong>
             </Typography>
           </CardContent>
@@ -63,4 +59,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+function mapStateToProps(state) {
+  return {
+      ...state
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(Profile));
