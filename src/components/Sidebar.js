@@ -19,7 +19,7 @@ const sidebar = [
     {link:"ranking", label:"Ranking", icon: <DeleteIcon />},
     {link:"dependentes", label:"Dependentes", icon: <SendIcon />},
     {link:"saldo", label:"Saldo", icon: <MailIcon />},
-    {link:"pagamentos", label:"Pagamentos", icon: <ReportIcon />}
+    {link:"recarga", label:"Recarga", icon: <ReportIcon />}
 ]
 
 const Sidebar = (props) => {
