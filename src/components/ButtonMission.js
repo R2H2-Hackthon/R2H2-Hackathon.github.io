@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Button from 'material-ui/Button';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import { ListItemIcon } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/Inbox';
 
 const ButtonMission = () => {

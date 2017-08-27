@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Card, { CardHeader } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import Avatar from 'material-ui/Avatar';
 
 import ButtonPlus from "../../components/ButtonPlus";
 import TitleScreen from "../../components/TitleScreen";

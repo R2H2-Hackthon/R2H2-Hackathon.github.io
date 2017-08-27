@@ -12,8 +12,6 @@ import CadastroUser from "./CadastroUser";
 //Actions
 import {getUsers,addUser} from "../../actions"
 
-import avatar from "./avatar.jpg";
-
 class Dependentes extends Component {
     constructor() {
         super()
@@ -64,7 +62,7 @@ class Dependentes extends Component {
 
                 {dependentes.length > 0 ?
                     <span>
-                        <img src={dependentes[pos].avatar} style={{width:200, height:200, borderRadius: "50%"}} />
+                        <img src={dependentes[pos].avatar} alt="imagem do usuário" style={{width:200, height:200, borderRadius: "50%"}} />
                         <p>{dependentes[pos].nome}</p>
                         <p>{dependentes[pos].email}</p>
                         <p>{dependentes[pos].dataNascimento}</p>

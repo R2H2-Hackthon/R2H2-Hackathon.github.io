@@ -23,7 +23,6 @@ import Sidebar from "../components/Sidebar";
 import {closeMessage,getUserProfile} from "../actions"
 
 //Utils
-import logo from "./logo.png";
 import logoInverse from "./logo-inverse.png";
 import './App.css';
 
@@ -56,7 +55,7 @@ class App extends Component {
         const {user} = this.props
         return (
             <div>
-                <Header title={<img src={logoInverse} width="230px" />} handleOpenMenu={this.handleOpenMenu} />
+                <Header title={<img src={logoInverse} width="230px" alt="Logo GrowUp" />} handleOpenMenu={this.handleOpenMenu} />
                 <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} user={user} />
 
                 <Snackbar

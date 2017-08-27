@@ -2,20 +2,13 @@
 
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 import { withRouter } from 'react-router-dom'
 
 import "./Profile.css"
-import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
+import Card, { CardMedia, CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import ShareIcon from 'material-ui-icons/Share';
 
 import TitleScreen from "../../components/TitleScreen";
-
-import avatar from "./avatar.jpg"
 
 class Profile extends Component {
   state = { expanded: false };
@@ -30,7 +23,7 @@ class Profile extends Component {
       <div className="center">
         <TitleScreen title="Perfil" />
         <Card>
-          <img src={user.avatar} style={{width:200, height:200, borderRadius: "50%"}} />
+          <img src={user.avatar} alt="imagem do usuário" style={{width:200, height:200, borderRadius: "50%"}} />
           <CardMedia
             title="Contemplative Reptile"
           />

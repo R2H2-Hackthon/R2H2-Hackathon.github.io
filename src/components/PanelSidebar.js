@@ -1,8 +1,6 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
 
-import avatar from "./avatar.jpg"
-
 const PanelSidebar = (props) => {
     return (
         <div>
