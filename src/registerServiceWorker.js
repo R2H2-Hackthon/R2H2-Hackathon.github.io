@@ -52,6 +52,12 @@ function registerValidSW(swUrl) {
                   .subscribe({ userVisibleOnly: true })
                   .then((subscription) => addSubscriptionIDToDB(subscription));      
 
+      const messaging = firebase.messaging();
+
+      messaging.onMessage(function (payload) {
+        console.log("Message received. ", payload);        
+      });
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         installingWorker.onstatechange = () => {
