@@ -13,8 +13,10 @@ import Saldo from "./saldo/Saldo";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
-import logo from "./logo.png"
-import logoInverse from "./logo-inverse.png"
+import logo from "./logo.png";
+import logoInverse from "./logo-inverse.png";
+
+import './App.css';
 
 class App extends Component {
     constructor() {
