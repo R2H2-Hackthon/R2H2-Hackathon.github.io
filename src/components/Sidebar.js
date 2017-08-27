@@ -2,13 +2,13 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import InboxIcon from 'material-ui-icons/Inbox';
+import InboxIcon from 'material-ui/Icon';
 
 import PanelSidebar from "./PanelSidebar";
 
 const sidebar = [
     {link:"/", label:"Home", icon: <InboxIcon />},
-    {link:"profile", label:"Perfil", icon: <InboxIcon />},
+    {link:"profile", label:"Perfil", icon: <PeopleIcon />},
     {link:"missoes", label:"Missões", icon: <InboxIcon />},
     {link:"ranking", label:"Ranking", icon: <InboxIcon />},
     {link:"dependentes", label:"Dependentes", icon: <InboxIcon />},

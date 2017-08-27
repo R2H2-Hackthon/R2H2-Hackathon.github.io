@@ -4,7 +4,7 @@ import ButtonMission from "../../components/ButtonMission"
 import TitleScreen from "../../components/TitleScreen";
 
 class Missoes extends Component {
-    render() {
+    render()
         return (
             <div className="quest-list">
                 <TitleScreen title="Missões" />
