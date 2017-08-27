@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import Card, { CardHeader, CardContent, CardMedia } from 'material-ui/Card';
-import IconButton from 'material-ui/IconButton';
+import Card, { CardHeader } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import SkipPreviousIcon from 'material-ui-icons/SkipPrevious';
-import PlayArrowIcon from 'material-ui-icons/PlayArrow';
-import SkipNextIcon from 'material-ui-icons/SkipNext';
-import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
 
 import TitleScreen from "../../components/TitleScreen";
@@ -45,7 +40,7 @@ class Ranking extends Component {
                                 />
                             </Card>
                             <Divider inset />
-                        </div>                      
+                        </div>
                     )
                 })}
 
