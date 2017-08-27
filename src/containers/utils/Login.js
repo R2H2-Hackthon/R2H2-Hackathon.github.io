@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import { withRouter } from 'react-router-dom';
 
 import Login from "../../components/Login";
+
+import {login} from "../../actions"
 
 class LoginController extends Component {
     constructor() {
@@ -22,11 +27,23 @@ class LoginController extends Component {
         })
     }
 
+    onSubmit = evt => {
+        evt.preventDefault()
+
+        this.props.login({email:this.state.nome})
+    }
+
     render() {
         return (
-            <Login nome={this.state.nome} titleName="Nome" password={this.state.password} handleChange={this.handleChange}  />  
+            <Login nome={this.state.nome} titleName="Email" password={this.state.password} handleChange={this.handleChange} titlePassword="Password" onSubmit={this.onSubmit} />  
         );
     }
 }
 
-export default LoginController;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        login
+    }, dispatch)
+}
+  
+export default withRouter(connect(null, mapDispatchToProps)(LoginController));

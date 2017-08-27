@@ -9,3 +9,5 @@ export const GET_MISSIONS = "GET_MISSIONS";
 export const CLOSE_MESSAGE = "CLOSE_MESSAGE";
 export const INSERT_CARTAO_USER = "INSERT_CARTAO_USER";
 export const REMOVE_DEPENDENTE = "REMOVE_DEPENDENTE";
+export const LOGIN = "LOGIN";
+export const SAIR = "SAIR";
