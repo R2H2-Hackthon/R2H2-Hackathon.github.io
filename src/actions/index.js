@@ -69,3 +69,18 @@ export function getCards() {
              })
     }
 }
+
+export function getMissions() {
+    return dispatch => {
+        axios.get(`${constants.URL_BACK}/v1/missoes`)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.GET_MISSIONS,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                console.log("erro", erro)
+             })
+    }
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './Main.css';
 
+import background from "./background.png";
+
 class Main extends Component {
   constructor() {
     super()
@@ -12,7 +14,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        Main
+        <img src={background} width="100%" alt="background da home" />
       </div>
     );
   }

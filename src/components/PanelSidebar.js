@@ -4,7 +4,7 @@ import Avatar from 'material-ui/Avatar';
 const PanelSidebar = (props) => {
     return (
         <div>
-            <Avatar alt="Remy Sharp" src={props.user.avatar} />{` ${props.user.nome}`}
+            <Avatar alt={`avatar ${props.user.nome}`} src={props.user.avatar} />{` ${props.user.nome}`}
         </div>
     );
 };

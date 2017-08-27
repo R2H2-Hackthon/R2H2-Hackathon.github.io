@@ -45,6 +45,13 @@ export default function(state=getInitialState, action) {
             }
         }
 
+        case constants.GET_MISSIONS: {
+            return {
+                ...state,
+                missoes: action.payload
+            }
+        }
+
         default:
             return state
     }
