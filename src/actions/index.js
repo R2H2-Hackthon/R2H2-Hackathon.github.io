@@ -27,6 +27,30 @@ export function closeMessage() {
     }
 }
 
+export function sair() {
+    return {
+        type: constants.SAIR
+    }
+}
+
+export function login({email}) {
+    const id = email === "joao@kepler.com" ? 1 : 4
+    return dispatch => {
+        axios.get(`${constants.URL_BACK}/v1/usuarios/${id}`)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.GET_USER_PROFILE,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                dispatch({
+                    type: constants.ERROR_API
+                })
+             })
+    }
+}
+
 export function getUserProfile() {
     return dispatch => {
         axios.get(`${constants.URL_BACK}/v1/usuarios/1`)

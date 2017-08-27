@@ -21,7 +21,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 //Actions
-import {closeMessage,getUserProfile} from "../actions"
+import {closeMessage,getUserProfile,sair} from "../actions"
 
 //Utils
 import logoInverse from "./logo-inverse.png";
@@ -36,8 +36,7 @@ class App extends Component {
         }
     }
 
-    componentWillMount() {
-        this.props.getUserProfile()
+    componentWillMount() {        
         document.querySelector("#visa-button").style.display = "none"
     }
 
@@ -53,11 +52,23 @@ class App extends Component {
         })
     }
 
+    onClickSair = evt => {
+        this.props.sair()
+    }
+
     render() {
         const {user} = this.props
+        if(!user.logado) {
+            return(
+                <Switch>
+                    <Route exact path='*' component={Login}/>
+                </Switch>
+            )
+        }
+        
         return (
             <div>
-                <Header title={<img src={logoInverse} width="230px" alt="Logo GrowUp" />} handleOpenMenu={this.handleOpenMenu} />
+                <Header onClickSair={this.onClickSair} title={<img src={logoInverse} width="230px" alt="Logo GrowUp" />} handleOpenMenu={this.handleOpenMenu} />
                 <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} user={user} />
 
                 <Snackbar
@@ -108,7 +119,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         closeMessage,
-        getUserProfile
+        getUserProfile,
+        sair
     }, dispatch)
 }
 

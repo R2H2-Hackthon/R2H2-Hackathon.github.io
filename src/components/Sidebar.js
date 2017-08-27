@@ -12,17 +12,27 @@ import ReportIcon from 'material-ui-icons/Report';
 
 import PanelSidebar from "./PanelSidebar";
 
-const sidebar = [
-    {link:"/", label:"Home", icon: <InboxIcon />},
-    {link:"profile", label:"Perfil", icon: <DraftsIcon />},
-    {link:"missoes", label:"Missões", icon: <StarIcon />},
-    {link:"ranking", label:"Ranking", icon: <DeleteIcon />},
-    {link:"dependentes", label:"Dependentes", icon: <SendIcon />},
-    {link:"saldo", label:"Saldo", icon: <MailIcon />},
-    {link:"recarga", label:"Recarga", icon: <ReportIcon />}
-]
+const sidebar = {
+    filho: [
+        {link:"/", label:"Home", icon: <InboxIcon />},
+        {link:"profile", label:"Perfil", icon: <DraftsIcon />},
+        {link:"missoes", label:"Missões", icon: <StarIcon />},
+        {link:"ranking", label:"Ranking", icon: <DeleteIcon />},
+        {link:"saldo", label:"Saldo", icon: <MailIcon />},
+        {link:"sair", label:"Sair", icon: <InboxIcon />},
+    ],
+    pai: [
+        {link:"/", label:"Home", icon: <InboxIcon />},
+        {link:"profile", label:"Perfil", icon: <DraftsIcon />},
+        {link:"dependentes", label:"Dependentes", icon: <SendIcon />},
+        {link:"saldo", label:"Saldo", icon: <MailIcon />},
+        {link:"recarga", label:"Recarga", icon: <ReportIcon />},
+        {link:"sair", label:"Sair", icon: <InboxIcon />},
+    ],
+}
 
 const Sidebar = (props) => {
+    const papel = props.user.papel === "pai" ? "pai" : "filho"
     return (
         <Drawer
             open={props.openMenu}
@@ -32,7 +42,7 @@ const Sidebar = (props) => {
             <PanelSidebar user={props.user} />
 
             <List disablePadding>
-                {sidebar.map(menu => {
+                {sidebar[papel].map(menu => {
                     return (
                         <Link to={menu.link} key={menu.label}>
                             <ListItem button>

@@ -27,7 +27,8 @@ export default function(state=getInitialState, action) {
         case constants.GET_USER_PROFILE: {
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
+                logado: true
             }
         }
 
@@ -35,6 +36,13 @@ export default function(state=getInitialState, action) {
             return {
                 ...state,
                 dependentes: action.payload
+            }
+        }
+
+        case constants.SAIR: {
+            return {
+                ...state,
+                logado: false
             }
         }
 
@@ -75,6 +83,13 @@ export default function(state=getInitialState, action) {
                 dependentes: action.payload,
                 showMessage: true,
                 message: "Removido com sucesso"
+            }
+        }
+
+        case constants.LOGIN: {
+            return {
+                ...state,
+                logado: true
             }
         }
 
