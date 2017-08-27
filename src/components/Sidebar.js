@@ -4,6 +4,8 @@ import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import InboxIcon from 'material-ui-icons/Inbox';
 
+import PanelSidebar from "./PanelSidebar";
+
 const sidebar = [
     {link:"/", label:"Home", icon: <InboxIcon />},
     {link:"profile", label:"Perfil", icon: <InboxIcon />},
@@ -19,6 +21,9 @@ const Sidebar = (props) => {
             open={props.openMenu}
             onRequestClose={props.handleOpenMenu}
             onClick={props.handleOpenMenu} >
+
+            <PanelSidebar user={props.user} />
+
             <List disablePadding>
                 {sidebar.map(menu => {
                     return (

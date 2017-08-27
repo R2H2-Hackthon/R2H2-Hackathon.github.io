@@ -18,6 +18,15 @@ import logoInverse from "./logo-inverse.png";
 
 import './App.css';
 
+const user = {
+    name: "Heitor, 18",
+    saldo: "R$ 2673,83",
+    email: "hi@heitorgouvea.me",
+    desejos: [
+      {descricao: "Viajar para Angola", porcentagem: 55}
+    ]
+  }
+
 class App extends Component {
     constructor() {
         super()
@@ -43,7 +52,7 @@ class App extends Component {
         return (
             <div>
                 <Header title={<img src={logoInverse} width="230px" />} handleOpenMenu={this.handleOpenMenu} />
-                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
+                <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} user={user} />
                 <Switch>
                     <Route exact path='/' component={Main}/>
                     <Route exact path='/dependentes' component={Dependentes}/>
