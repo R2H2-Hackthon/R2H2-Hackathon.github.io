@@ -1,6 +1,7 @@
 // @flow weak
 
 import React, { Component } from 'react';
+import "./Profile.css"
 import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
@@ -13,13 +14,11 @@ import TitleScreen from "../../components/TitleScreen";
 import avatar from "./avatar.jpg"
 
 const user = {
-  name: "Filho do pai que cadastrou",
-  saldo: "R$ 1000,00",
-  email: "filho@son.com",
+  name: "Heitor, 18",
+  saldo: "R$ 2673,83",
+  email: "hi@heitorgouvea.me",
   desejos: [
-    {descricao:"Ir a praia", porcentagem: 55},
-    {descricao:"Comprar um carro", porcentagem: 15},
-    {descricao:"Ser rico", porcentagem: 5},
+    {descricao: "Viajar para Angola", porcentagem: 55}
   ]
 }
 
@@ -32,10 +31,10 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
+      <div className="profile">
         <TitleScreen title="Perfil" />
         <Card>
-          <img src={avatar} style={{width:200, height:200}} />
+          <img src={avatar} style={{width:200, height:200, borderRadius: "50%"}} />
           <CardMedia
             title="Contemplative Reptile"
           />
@@ -48,15 +47,15 @@ class Profile extends Component {
             </Typography>
 
             <Typography component="p">
-              <strong>Desejos</strong>
+              <strong>Desejos: {user.desejos.map(desejo => {
+                return (
+                  <Typography component="p">
+                    {desejo.descricao}
+                  </Typography>
+                )
+              })}
+              </strong>
             </Typography>
-            {user.desejos.map(desejo => {
-              return (
-                <Typography component="p">
-                  {desejo.descricao}
-                </Typography>
-              )
-            })}
           </CardContent>
         </Card>
       </div>
