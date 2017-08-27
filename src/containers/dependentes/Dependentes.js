@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import { withRouter } from 'react-router-dom'
 import MobileStepper from 'material-ui/MobileStepper';
 
 import ButtonPlus from "../../components/ButtonPlus"
 import TitleScreen from "../../components/TitleScreen";
 
-import avatar from "./avatar.jpg";
+//Actions
+import {getUsers} from "../../actions"
 
-const dependentes = [
-    {name:"Carlinhos de Jesus", img:{avatar}, saldo:"R$ 500,05", ultimoLancamento:{
-        data:"11/05/2017",
-        descricao:"Compra de um lanche",
-        valor: "R$ 30,00"
-    }},
-    {name:"Maria de Jesus", img:{avatar}, saldo:"R$ 450,50", ultimoLancamento:{
-        data:"20/06/2017",
-        descricao:"Compra de um notebook",
-        valor: "R$ 1500,00"
-    }}
-]
+import avatar from "./avatar.jpg";
 
 class Dependentes extends Component {
     constructor() {
         super()
 
         this.state = {pos:0}
+    }
+
+    componentWillMount() {
+        this.props.getUsers()
     }
 
     handleNext = () => {
@@ -40,21 +37,21 @@ class Dependentes extends Component {
 
     render() {
         const {pos} = this.state
+        const {dependentes} = this.props.user
         return (
             <div className="center">
                 <TitleScreen title="Dependentes" />
                 <ButtonPlus />
 
-                <img src={avatar} style={{width:200, height:200, borderRadius: "50%"}} />
+                {dependentes.length > 0 ?
+                    <span>
+                        <img src={dependentes[pos].avatar} style={{width:200, height:200, borderRadius: "50%"}} />
 
-                <p>{dependentes[pos].name}</p>
-                <p>{dependentes[pos].saldo}</p>
-                <p>
-                    {dependentes[pos].ultimoLancamento.descricao}<br />
-                    {dependentes[pos].ultimoLancamento.valor}<br />
-                    {dependentes[pos].ultimoLancamento.data}
-                </p>
-
+                        <p>{dependentes[pos].nome}</p>
+                        <p>{dependentes[pos].email}</p>
+                        <p>{dependentes[pos].dataNascimento}</p>
+                    </span>
+                : ""}
 
                 <MobileStepper
                     type="text"
@@ -72,4 +69,16 @@ class Dependentes extends Component {
     }
 }
 
-export default Dependentes;
+function mapStateToProps(state) {
+    return {
+        ...state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getUsers
+    }, dispatch)
+}
+  
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dependentes));

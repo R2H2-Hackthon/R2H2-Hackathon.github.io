@@ -1,12 +1,22 @@
-import {GET_USER_PROFILE} from "../constants"
+import * as constants from "../constants"
 
-const getInitialState = {}
+const getInitialState = {
+    dependentes:[]
+}
 
 export default function(state=getInitialState, action) {
     switch(action.type) {
-        case GET_USER_PROFILE: {
+        case constants.GET_USER_PROFILE: {
             return {
+                ...state,
                 ...action.payload
+            }
+        }
+
+        case constants.GET_USERS: {
+            return {
+                ...state,
+                dependentes: action.payload
             }
         }
 
