@@ -5,7 +5,7 @@ import AddIcon from 'material-ui-icons/Add';
 
 const ButtonPlus = () => {
     return (
-        <Button fab color="primary" aria-label="add" style={{position:"absolute", right:10, bottom:10}}>
+        <Button fab color="primary" aria-label="add" style={{position:"fixed", right:10, bottom:10}}>
             <AddIcon />
         </Button>
     );
