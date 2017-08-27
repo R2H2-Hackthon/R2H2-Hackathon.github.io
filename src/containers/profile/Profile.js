@@ -40,14 +40,8 @@ class Profile extends Component {
             </Typography>
 
             <Typography component="p">
-              <strong>Desejos: {user.desejos ? user.desejos.map((desejo,key) => {
-                return (
-                  <Typography component="p" key={key} >
-                    {desejo.descricao}
-                  </Typography>
-                )
-              }) : ""}
-              </strong>
+              <strong>Meta: </strong>
+              300
             </Typography>
           </CardContent>
         </Card>
