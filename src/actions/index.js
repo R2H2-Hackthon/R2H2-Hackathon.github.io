@@ -34,7 +34,7 @@ export function sair() {
 }
 
 export function login({email}) {
-    const id = email === "joao@kepler.com" ? 1 : 4
+    const id = email == "joao@kepler.com" ? 1 : 4
     return dispatch => {
         axios.get(`${constants.URL_BACK}/v1/usuarios/${id}`)
              .then(function(response)  {

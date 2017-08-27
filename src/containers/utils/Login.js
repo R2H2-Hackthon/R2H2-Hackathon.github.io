@@ -29,7 +29,7 @@ class LoginController extends Component {
 
     onSubmit = evt => {
         evt.preventDefault()
-
+    
         this.props.login({email:this.state.nome})
     }
 
