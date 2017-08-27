@@ -17,9 +17,9 @@ const user = {
   saldo: "R$ 1000,00",
   email: "filho@son.com",
   desejos: [
-    {descricao:"Ir a praia", porcentagem:55},
-    {descricao:"Comprar um carro", porcentagem:15},
-    {descricao:"Ser rico", porcentagem:5},
+    {descricao:"Ir a praia", porcentagem: 55},
+    {descricao:"Comprar um carro", porcentagem: 15},
+    {descricao:"Ser rico", porcentagem: 5},
   ]
 }
 
@@ -49,7 +49,7 @@ class Profile extends Component {
 
             <Typography component="p">
               <strong>Desejos</strong>
-            </Typography>            
+            </Typography>
             {user.desejos.map(desejo => {
               return (
                 <Typography component="p">
