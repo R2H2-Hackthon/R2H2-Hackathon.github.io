@@ -27,7 +27,7 @@ class Ranking extends Component {
 
                 {users.map(user => {
                     return (
-                        <div>
+                        <div className="padding-vertical half-padding-horizontal">
                             <Card>
                                 <CardHeader
                                     avatar={
