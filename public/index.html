@@ -38,25 +38,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
-    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      // TODO: Replace with your project's customized code snippet
-      var config = {
-        apiKey: "AIzaSyChecdDzBBcv0vWvDDeLw4uwgaWMFDDrAE",
-        authDomain: "teencard-c1737.firebaseapp.com",
-        messagingSenderId: "51991242324",
-      };
-
-      firebase.initializeApp(config);
-
-      const messaging = firebase.messaging();
-
-      messaging.onMessage(function (payload) {
-        console.log("Message received. ", payload);
-      });
-      
-    </script>
   </body>
 </html>
