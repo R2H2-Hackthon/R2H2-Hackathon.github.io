@@ -2,7 +2,7 @@
   "name": "r2h2-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://r2h2-hackthon.github.io/app-pwa/",
+  "homepage": "http://growup.ninja/",
   "dependencies": {
     "axios": "^0.16.2",
     "material-ui": "^1.0.0-beta.6",

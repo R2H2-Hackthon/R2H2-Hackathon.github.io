@@ -21,3 +21,5 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();
+
+// comment line just test the deploy process
