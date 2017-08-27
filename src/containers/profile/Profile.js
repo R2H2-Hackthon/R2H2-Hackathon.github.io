@@ -31,7 +31,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="profile">
+      <div className="center">
         <TitleScreen title="Perfil" />
         <Card>
           <img src={avatar} style={{width:200, height:200, borderRadius: "50%"}} />

@@ -31,7 +31,7 @@ class Dependentes extends Component {
           pos: this.state.pos + 1,
         });
       };
-    
+
     handleBack = () => {
         this.setState({
             pos: this.state.pos - 1,
@@ -41,11 +41,11 @@ class Dependentes extends Component {
     render() {
         const {pos} = this.state
         return (
-            <div>
+            <div className="center">
                 <TitleScreen title="Dependentes" />
                 <ButtonPlus />
 
-                <img src={avatar} style={{width:200, height:200}} />
+                <img src={avatar} style={{width:200, height:200, borderRadius: "50%"}} />
 
                 <p>{dependentes[pos].name}</p>
                 <p>{dependentes[pos].saldo}</p>
