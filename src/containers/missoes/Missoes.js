@@ -10,27 +10,27 @@ class Missoes extends Component {
                 <TitleScreen title="Missões" />
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
                 <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
-                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                    <h5 className="quest-list">  Lorem Ipsum </h5>
                 </div>
             </div>
         );

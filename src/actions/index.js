@@ -3,6 +3,28 @@ import axios from "axios";
 //Constants
 import * as constants from "../constants"
 
+export function addUser(user) {
+    return dispatch => {
+        axios.post(`${constants.URL_BACK}/v1/usuarios`, user)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.ADD_USER,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                console.log("erro", erro)
+             })
+    }
+}
+
+
+export function closeMessage() {
+    return {
+        type: constants.CLOSE_MESSAGE
+    }
+}
+
 export function getUserProfile() {
     return dispatch => {
         axios.get(`${constants.URL_BACK}/v1/usuarios/1`)
@@ -24,6 +46,21 @@ export function getUsers() {
              .then(function(response)  {
                  dispatch({
                      type: constants.GET_USERS,
+                     payload: response.data
+                 })
+             })
+             .catch(function(erro) {
+                console.log("erro", erro)
+             })
+    }
+}
+
+export function getCards() {
+    return dispatch => {
+        axios.get(`${constants.URL_BACK}/v1/cartoes`)
+             .then(function(response)  {
+                 dispatch({
+                     type: constants.GET_CARDS,
                      payload: response.data
                  })
              })

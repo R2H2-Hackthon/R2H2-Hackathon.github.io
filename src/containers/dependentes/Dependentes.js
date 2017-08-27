@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import MobileStepper from 'material-ui/MobileStepper';
+import Dialog, { DialogTitle, DialogContent } from 'material-ui/Dialog';
 
 import ButtonPlus from "../../components/ButtonPlus"
 import TitleScreen from "../../components/TitleScreen";
+import CadastroUser from "./CadastroUser";
 
 //Actions
-import {getUsers} from "../../actions"
+import {getUsers,addUser} from "../../actions"
 
 import avatar from "./avatar.jpg";
 
@@ -16,7 +18,7 @@ class Dependentes extends Component {
     constructor() {
         super()
 
-        this.state = {pos:0}
+        this.state = {pos:0, open:false}
     }
 
     componentWillMount() {
@@ -32,8 +34,25 @@ class Dependentes extends Component {
     handleBack = () => {
         this.setState({
             pos: this.state.pos - 1,
+            open: false,
         });
     };
+
+    handleRequestClose = () => {
+        this.setState({ open: !this.state.open });
+    };
+
+    onChange = evt => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        })
+    }
+
+    onFormSubmit = evt => {
+        evt.preventDefault()
+
+        this.props.addUser(this.state)
+    }
 
     render() {
         const {pos} = this.state
@@ -41,12 +60,11 @@ class Dependentes extends Component {
         return (
             <div className="center">
                 <TitleScreen title="Dependentes" />
-                <ButtonPlus />
+                <ButtonPlus onClick={this.handleRequestClose} />
 
                 {dependentes.length > 0 ?
                     <span>
                         <img src={dependentes[pos].avatar} style={{width:200, height:200, borderRadius: "50%"}} />
-
                         <p>{dependentes[pos].nome}</p>
                         <p>{dependentes[pos].email}</p>
                         <p>{dependentes[pos].dataNascimento}</p>
@@ -64,6 +82,13 @@ class Dependentes extends Component {
                     disableNext={this.state.pos === dependentes.length-1}
                 />
 
+                <Dialog onRequestClose={this.handleRequestClose} {...this.state}>
+                    <DialogTitle>Cadastro de um novo dependente</DialogTitle>
+                    <DialogContent>
+                        <CadastroUser {...this.state} onChange={this.onChange} onFormSubmit={this.onFormSubmit}/>
+                    </DialogContent>
+                </Dialog>
+
             </div>
         );
     }
@@ -77,7 +102,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getUsers
+        getUsers,
+        addUser
     }, dispatch)
 }
   
