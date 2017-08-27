@@ -10,6 +10,19 @@ import ShareIcon from 'material-ui-icons/Share';
 
 import TitleScreen from "../../components/TitleScreen";
 
+import avatar from "./avatar.jpg"
+
+const user = {
+  name: "Filho do pai que cadastrou",
+  saldo: "R$ 1000,00",
+  email: "filho@son.com",
+  desejos: [
+    {descricao:"Ir a praia", porcentagem:55},
+    {descricao:"Comprar um carro", porcentagem:15},
+    {descricao:"Ser rico", porcentagem:5},
+  ]
+}
+
 class Profile extends Component {
   state = { expanded: false };
 
@@ -22,34 +35,29 @@ class Profile extends Component {
       <div>
         <TitleScreen title="Perfil" />
         <Card>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="Recipe">
-                R
-              </Avatar>
-            }
-            title="Shrimp and Chorizo Paella"
-            subheader="September 14, 2016"
-          />
+          <img src={avatar} style={{width:200, height:200}} />
           <CardMedia
-            image="/static/images/cards/paella.jpg"
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with
-              your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            <Typography type="headline" component="h2">
+              {user.name}
             </Typography>
+            <Typography component="p">
+              {user.email}
+            </Typography>
+
+            <Typography component="p">
+              <strong>Desejos</strong>
+            </Typography>            
+            {user.desejos.map(desejo => {
+              return (
+                <Typography component="p">
+                  {desejo.descricao}
+                </Typography>
+              )
+            })}
           </CardContent>
-          <CardActions disableActionSpacing>
-            <IconButton aria-label="Add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="Share">
-              <ShareIcon />
-            </IconButton>
-            <div />
-          </CardActions>
         </Card>
       </div>
     );
