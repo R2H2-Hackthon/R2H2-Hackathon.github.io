@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import MobileStepper from 'material-ui/MobileStepper';
 
+import ButtonPlus from "../../components/ButtonPlus"
 import TitleScreen from "../../components/TitleScreen";
 
 import avatar from "./avatar.jpg";
@@ -23,11 +25,25 @@ class Dependentes extends Component {
 
         this.state = {pos:0}
     }
+
+    handleNext = () => {
+        this.setState({
+          pos: this.state.pos + 1,
+        });
+      };
+    
+    handleBack = () => {
+        this.setState({
+            pos: this.state.pos - 1,
+        });
+    };
+
     render() {
         const {pos} = this.state
         return (
             <div>
                 <TitleScreen title="Dependentes" />
+                <ButtonPlus />
 
                 <img src={avatar} style={{width:200, height:200}} />
 
@@ -38,6 +54,18 @@ class Dependentes extends Component {
                     {dependentes[pos].ultimoLancamento.valor}<br />
                     {dependentes[pos].ultimoLancamento.data}
                 </p>
+
+
+                <MobileStepper
+                    type="text"
+                    steps={dependentes.length}
+                    position="static"
+                    activeStep={this.state.pos}
+                    onBack={this.handleBack}
+                    onNext={this.handleNext}
+                    disableBack={this.state.pos === 0}
+                    disableNext={this.state.pos === dependentes.length-1}
+                />
 
             </div>
         );

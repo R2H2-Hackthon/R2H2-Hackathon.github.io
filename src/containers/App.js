@@ -13,6 +13,9 @@ import Saldo from "./saldo/Saldo";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
+import logo from "./logo.png"
+import logoInverse from "./logo-inverse.png"
+
 class App extends Component {
     constructor() {
         super()
@@ -37,7 +40,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header title="GrowUp" handleOpenMenu={this.handleOpenMenu} />
+                <Header title={<img src={logoInverse} width="230px" />} handleOpenMenu={this.handleOpenMenu} />
                 <Sidebar openMenu={this.state.openMenu} handleOpenMenu={this.handleOpenMenu} />
                 <Switch>
                     <Route exact path='/' component={Main}/>
