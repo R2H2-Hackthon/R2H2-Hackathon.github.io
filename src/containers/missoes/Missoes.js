@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
-
+import "./Missoes.css";
 import ButtonMission from "../../components/ButtonMission"
 import TitleScreen from "../../components/TitleScreen";
 
 class Missoes extends Component {
     render() {
         return (
-            <div>
+            <div className="quest-list">
                 <TitleScreen title="Missões" />
-                <div className="col-md-2" style={{textAlign:"center"}}>
+                <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
                 </div>
-                <div className="col-md-2" style={{textAlign:"center"}}>
+                <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
                 </div>
-                <div className="col-md-2" style={{textAlign:"center"}}>
+                <div className="quest-item" style={{textAlign:"center"}}>
                     <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                </div>
+                <div className="quest-item" style={{textAlign:"center"}}>
+                    <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                </div>
+                <div className="quest-item" style={{textAlign:"center"}}>
+                    <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
+                </div>
+                <div className="quest-item" style={{textAlign:"center"}}>
+                    <ButtonMission />
+                    <h5 quest-tittle>  Lorem Ipsum </h5>
                 </div>
             </div>
         );

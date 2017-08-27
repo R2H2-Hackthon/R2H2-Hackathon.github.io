@@ -9,7 +9,7 @@ import PanelSidebar from "./PanelSidebar";
 const sidebar = [
     {link:"/", label:"Home", icon: <InboxIcon />},
     {link:"profile", label:"Perfil", icon: <InboxIcon />},
-    {link:"missoes", label:"Missoes", icon: <InboxIcon />},
+    {link:"missoes", label:"Missões", icon: <InboxIcon />},
     {link:"ranking", label:"Ranking", icon: <InboxIcon />},
     {link:"dependentes", label:"Dependentes", icon: <InboxIcon />},
     {link:"Saldo", label:"Saldo", icon: <InboxIcon />}
