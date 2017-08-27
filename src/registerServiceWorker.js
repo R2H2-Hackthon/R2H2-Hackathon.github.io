@@ -48,7 +48,9 @@ function registerValidSW(swUrl) {
     .register(swUrl)
     .then(registration => {
 
-      registration.pushManager.subscribe({ userVisibleOnly: true })
+      registration.pushManager
+                  .subscribe({ userVisibleOnly: true })
+                  .then((subscription) => addSubscriptionIDToDB(subscription));      
 
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
@@ -100,6 +102,16 @@ function checkValidServiceWorker(swUrl) {
         'No internet connection found. App is running in offline mode.'
       );
     });
+}
+
+function addSubscriptionIDToDB(subscription) {
+  const uid = subscription.endpoint.split('gcm/send/')[1];
+  const options = {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    body: JSON.stringify({ uid: uid })
+  };
+  fetch('https://teencardgateway.herokuapp.com/v1/app/registrar', options);
 }
 
 export function unregister() {
