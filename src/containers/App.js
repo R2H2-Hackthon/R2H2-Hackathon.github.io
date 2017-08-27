@@ -13,6 +13,8 @@ import Saldo from "./saldo/Saldo";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
+import './App.css';
+
 class App extends Component {
     constructor() {
         super()
